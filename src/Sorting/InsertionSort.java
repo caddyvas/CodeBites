@@ -1,9 +1,16 @@
 package Sorting;
 
+/**
+ * Insertion sort places an unsorted element at its suitable place in each iteration / pass.
+ * It works similarly as we sort cards in our hand in a card game.
+ * Values from the unsorted part are picked and placed at the correct position in the sorted part.
+ */
 public class InsertionSort {
 
     int[] arr = {5, 8, 7, 2, 1, 4, 9, 0, 1, 44, 55, 21, 12, 11, 10, 99, 122, 123, 43, 32};
 
+
+    // Idea: 1st iteration compares two elements. 2nd compares 3, 3rd compares 4....
     public void doInsertionSortByForLoop() {
 
         for (int i = 0; i < arr.length - 1; i++) {
@@ -24,6 +31,7 @@ public class InsertionSort {
 
     }
 
+    // In this method, use the integer "key" and makes a comparison with int j. In the end, swap the remaining element
     public void doInsertionSortByWhileLoop() {
         System.out.println();
 

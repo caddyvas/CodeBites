@@ -1,7 +1,5 @@
 package Sorting;
 
-import com.sun.scenario.effect.Merge;
-
 public class SortingMain {
 
     public static void main(String[] args) {
