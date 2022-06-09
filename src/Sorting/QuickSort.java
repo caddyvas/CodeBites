@@ -1,7 +1,22 @@
 package Sorting;
 
+/**
+ * Like Merge Sort, quick sorts works by a divide and conquer algorithm. It picks an element as a pivot and partitions
+ * the given array around the picked pivot.
+ * <p>
+ * Big O: Best Case - When the pivot element is in the middle element or near to the middle element. O(nlogn)
+ * <p>
+ * Average Case - When the array elements are in jumbled order that is not properly ascending and not properly descending
+ * O(nlogn)
+ * <p>
+ * Worst case - When the pivot element is either smallest or greatest element. If the pivot is always the last element of
+ * the array, the worst case would occur when the given array is already sorted in ascending or descending.
+ * O(n2)
+ */
 public class QuickSort {
 
+    // This function takes last element as pivot, places the pivot element at its correct position in sorted array.
+    // Places all smaller elements to the left of the pivot and larger elements to the right of the pivot
     private int doPartition(int[] arr, int low, int high) {
 
         int pivot = arr[high];
@@ -25,6 +40,7 @@ public class QuickSort {
 
     }
 
+    // After first partition, pick a pivot before position of pivot and move or sort towards left side
     public void doQuickSort(int[] arr, int low, int high) {
 
         if (low < high) {

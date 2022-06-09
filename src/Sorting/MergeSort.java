@@ -1,7 +1,15 @@
 package Sorting;
 
+/**
+ * Like Quick sort, Merge sort works by divide and conquer algorithm. It divides the input array into two halves, calls
+ * itself for the two halves (recursion - left and right) and then merges the two sorted halves.
+ * <p>
+ * Time Complexity: O(nLogn) in all 3 cases (worst, average and best)
+ *
+ * Drawbacks - It goes through whole process even if the array is sorted. Algo requires an additional memory space of
+ * O(n) fior the temporary array
+ */
 public class MergeSort {
-
 
     public void doMergeSort(int[] arr) {
 
@@ -24,15 +32,16 @@ public class MergeSort {
             rightArray[j] = arr[leftArraySize++];
         }
 
-        // split left
+        // split left - recursive until the left part is done first
         doMergeSort(leftArray);
-        // split right
+        // split right - after left split is the right split
         doMergeSort(rightArray);
         //merge both
         mergeArrays(arr, leftArray, rightArray);
 
     }
 
+    // This function merges left and right array into one main array.
     private void mergeArrays(int[] arr, int[] leftArray, int[] rightArray) {
 
         int leftArraySize = leftArray.length;
