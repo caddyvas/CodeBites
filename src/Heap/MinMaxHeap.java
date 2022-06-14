@@ -36,6 +36,13 @@ public class MinMaxHeap {
         return leftChild(index) >= size || rightChild(index) >= size;
     }
 
+    /**
+     * This function adds or inserts the number that passed in. Time Complexity: O(log n)
+     *
+     * @param no to be inserted
+     *           <p>
+     *           Before insertion, there is a comparison between parent and the current no. If parent is bigger, then swap
+     */
     public void insertNo(int no) { // 6,4,3,2,1
 
         if (index >= size) {
@@ -62,6 +69,8 @@ public class MinMaxHeap {
      * This function removes the minimum (first (top) index) element from the heap
      * <p>
      * After the removal of top index, replace it with the last index of the heap
+     * <p>
+     * Time Complexity: O(log n)
      */
     public int remove() {
 
@@ -71,12 +80,16 @@ public class MinMaxHeap {
         // minify the heap array to adjust the removal
         minHeapify(0);
         return pop;
-
-
     }
 
     /**
      * Min Heapify the node at index position
+     * <p>
+     * 1. First check whether the given index is not a leafnode
+     * 2. Compare arr[index] > arr[left(index)] || arr[index] > arr[right(index)]
+     * 3. Now compare arr[left(index)] < arr[right(index) else
+     * 4. If right node is bigger then swap parent and left child, recurse minHeapify
+     * 5. If left node is bigger then swap parent and right child, recurse minHeapify
      *
      * @param index of Heap Array
      */
@@ -96,11 +109,11 @@ public class MinMaxHeap {
         }
     }
 
-    // Builds the min-heap using the minHeapify
+    // Builds the min-heap using the minHeapify i.e. without insert function or ready-made array
     public void minHeap() {
         heapArr = new int[]{6, 4, 3, 2, 1};
         size = heapArr.length;
-        index = 5;
+        index = size;
         for (int i = (index - 1) / 2; i >= 0; i--) {
             minHeapify(i);
         }
@@ -114,8 +127,8 @@ public class MinMaxHeap {
     }
 
     public void printArray() {
-        for (int no : heapArr)
-            System.out.print(no + " ");
+        for (int i = 0; i < size; i++)
+            System.out.print(heapArr[i] + " ");
         System.out.println();
     }
 }
